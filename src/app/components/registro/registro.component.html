@@ -1,0 +1,120 @@
+<div class="card bg-light">
+    <div class="card-header">
+        <h3 class="text-center">Registro</h3>
+    </div>
+    <div class="card-body">
+        <form #usuarioForm="ngForm">
+
+            <div class="form-group row">
+                <div class="form-group col-md-6">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" placeholder="ejemplo@hotmail.com" [(ngModel)]="usuario.email" name="email" required email minlength="5" #email="ngModel">
+                    <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <div *ngIf="email!.errors!.required">
+                            El email es requerido
+                        </div>
+                        <div *ngIf="email!.errors!.email">
+                            Debe tener un formato de correo
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.nombre" name="nombre" required minlength="1" #nombre="ngModel">
+                    <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                        <div *ngIf="nombre!.errors!.required">
+                            El Nombre es requerido
+                        </div>
+                        <div *ngIf="nombre!.errors!.minlength">
+                            El Nombre debe tener mas de 1 caracter
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="form-group row">
+                <div class="form-group col-md-6">
+                    <label for="primerApellido">Primer apellido:</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.primerApellido" name="primerApellido" required minlength="1" #primerApellido="ngModel">
+                    <div class="alert alert-danger" *ngIf="primerApellido.invalid && (primerApellido.dirty || primerApellido.touched)">
+                        <div *ngIf="primerApellido!.errors!.required">
+                            El primer apellido es requerido
+                        </div>
+                        <div *ngIf="primerApellido!.errors!.minlength">
+                            El primer apellido debe tener mas de 1 caracter
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="segundoApellido">Segundo apellido:</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.segundoApellido" name="segundoApellido" required minlength="1" #segundoApellido="ngModel">
+                    <div class="alert alert-danger" *ngIf="segundoApellido.invalid && (segundoApellido.dirty || segundoApellido.touched)">
+                        <div *ngIf="segundoApellido!.errors!.required">
+                            El segundo apellido es requerido
+                        </div>
+                        <div *ngIf="segundoApellido!.errors!.minlength">
+                            El segundo apellido debe tener mas de 1 caracter
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <div class="form-group col-md-6">
+                    <label for="direccion">Direccion:</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.direccion" name="direccion" required minlength="1" #direccion="ngModel">
+                    <div class="alert alert-danger" *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)">
+                        <div *ngIf="direccion!.errors!.required">
+                            La direccion es requerido
+                        </div>
+                        <div *ngIf="direccion!.errors!.minlength">
+                            La direccion debe tener mas de 1 caracteres
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="telefono">Telefono:</label>
+                    <input type="text" class="form-control" [(ngModel)]="usuario.telefono" name="telefono" required required minlength="7" #telefono="ngModel">
+                    <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                        <div *ngIf="telefono!.errors!.required">
+                            El telefono es requerido
+                        </div>
+                        <div *ngIf="telefono!.errors!.minlength">
+                            El telefono debe tener mas de 7 caracteres
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+
+            <div class="form-group row">
+                <div class="form-group col-md-6">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" class="form-control" [(ngModel)]="usuario.contrasena" name="contrasena" required minlength="8" #contrasena="ngModel">
+                    <div class="alert alert-danger" *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)">
+                        <div *ngIf="contrasena!.errors!.required">
+                            La contraseña es requerido
+                        </div>
+                        <div *ngIf="contrasena!.errors!.minlength">
+                            La contraseña debe tener mas de 8 caracteres
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" role="button" style="width:200px;" (click)='registro()' [disabled]="!usuarioForm.form.valid">Registrar</button>
+                    <button class="btn btn-primary" role="button" style="width:200px;" (click)='volver()'>Volver</button>
+
+                </div>
+
+
+            </div>

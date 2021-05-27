@@ -1,0 +1,46 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">
+        <h3 class="text-center">
+            Lista de usuarios
+        </h3>
+    </div>
+    <div class="card-body text-primary">
+
+
+        <div class="my-2 text-left">
+            <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/usuarios/form']">Crear usuario</button>
+        </div>
+        <table class="table table-bordered table-stripped">
+            <thead>
+                <tr>
+                    <th>Nombre </th>
+                    <th>Primer apellido</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                    <th>Habilitado</th>
+                    <th>Rol</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor=" let usuario of usuarios ">
+                    <td> {{usuario.nombre}}</td>
+                    <td> {{usuario.primerApellido}}</td>
+                    <td> {{usuario.email}}</td>
+                    <td> {{usuario.telefono}}</td>
+                    <td> {{usuario.habilitado}}</td>
+                    <td> {{usuario.rol}}</td>
+                    <td>
+                        <button type="button" name="button" [routerLink]="['/usuarios/form', usuario.userId]" class="btn btn-primary">Editar</button>
+                    </td>
+                    <td>
+                        <button type="button" name="button" (click)='eliminar(usuario)' class="btn btn-danger">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

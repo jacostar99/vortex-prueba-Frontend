@@ -1,0 +1,20 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card text-center card  bg-default mb-3">
+                <div class="card-header">
+                    Inicio de sesión </div>
+                <div class="card-body">
+                    <input type="text" [(ngModel)]="ema" id="username" class="form-control input-sm chat-input" placeholder="Username" />
+
+                    <input type="password" [(ngModel)]="pass" id="password" class="form-control input-sm chat-input" placeholder="Password" />
+                </div>
+                <div class="card-footer text-muted">
+                    <input (click)='login()' type="submit" class="btn btn-lg btn-primary btn-block" style="width: 300px;" value="Login">
+                </div>
+                <a [routerLink]="['/registro']"> Registrarme </a>
+            </div>
+        </div>
+    </div>
+</div>

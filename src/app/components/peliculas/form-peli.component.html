@@ -1,0 +1,96 @@
+<div class="card bg-light">
+    <div class="card-header">
+        <h3 class="text-center">Tickets App</h3>
+    </div>
+    <div class="card-body">
+        <form #peliculaForm="ngForm">
+
+            <div class="form-group row">
+                <div class="form-group col-md-6">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" placeholder="" [(ngModel)]="pelicula.nombre" name="nombre" required minlength="1" #nombre="ngModel">
+                    <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                        <div *ngIf="nombre!.errors!.required">
+                            El nombre de la pelicula es requerido
+                        </div>
+                        <div *ngIf="nombre!.errors!.minlength">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="precioTicket">Precio ticket:</label>
+                    <input type="text" class="form-control" [(ngModel)]="pelicula.precioTicket" name="precioTicket" required minlength="1" #precioTicket="ngModel">
+                    <div class="alert alert-danger" *ngIf="precioTicket.invalid && (precioTicket.dirty || precioTicket.touched)">
+                        <div *ngIf="precioTicket!.errors!.required">
+                            El precio del ticket es requerido
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="form-group row">
+                <div class="form-group col-md-6">
+                    <label for="informacion">Informacion:</label>
+                    <input type="text" class="form-control" [(ngModel)]="pelicula.informacion" name="informacion" required minlength="1" #informacion="ngModel">
+                    <div class="alert alert-danger" *ngIf="informacion.invalid && (informacion.dirty || informacion.touched)">
+                        <div *ngIf="informacion!.errors!.required">
+                            La informacion de la pelicula es requerida
+                        </div>
+                        <div *ngIf="informacion!.errors!.minlength">
+                            La informacion debe tener mas de 1 caracter
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="duracion">Duracion (En minutos):</label>
+                    <input type="text" class="form-control" [(ngModel)]="pelicula.duracion" name="pelicula" #duracion="ngModel">
+                    <div class="alert alert-danger" *ngIf="duracion.invalid && (duracion.dirty || duracion.touched)">
+                        <div *ngIf="duracion!.errors!.required">
+                            La duracion es requerida
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <div class="form-group col-md-6">
+                    <label for="imagen">Imagen:</label>
+                    <input type="text" class="form-control" [(ngModel)]="pelicula.imagen" name="imagen" required minlength="1" #imagen="ngModel">
+                    <div class="alert alert-danger" *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)">
+                        <div *ngIf="imagen!.errors!.required">
+                            La imagen es requerida
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                    <label for="habilitado" class="form-label">Habilitado:</label>
+                    <select name="habilitado" class="form-select" [(ngModel)]="pelicula.habilitado" style="width:100px;">
+                        <option value="S">S</option>
+                        <option value="N">N</option>
+                    </select>
+                </div>
+
+
+
+                <br>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <button class="btn btn-primary" role="button" style="width:200px;" (click)='crear()' *ngIf="!pelicula.peliId; else elseBlock" [disabled]="!peliculaForm.form.valid">Crear</button>
+
+                        <ng-template #elseBlock>
+                            <button class="btn btn-primary" role="button" style="width:200px;" (click)='actualizar()' [disabled]="!peliculaForm.form.valid">Editar</button>
+
+                        </ng-template>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

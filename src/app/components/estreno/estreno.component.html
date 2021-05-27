@@ -1,0 +1,22 @@
+<h1>Próximos estrenos</h1>
+<hr>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let estreno of estrenos; let i = index">
+        <div class="card h-100">
+            <img [src]="estreno.img" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"> {{ estreno.nombrePelicula}}</h5>
+                <p class="card-text"> {{estreno.informacion | slice:0:100}}..</p>
+
+
+                <div class="d-grid gap-2">
+                    <a [routerLink]="['/info-estreno' , i]" class="btn btn-outline-primary">  Ver más </a>
+                    <!-- <button class="btn btn-outline-primary">
+                        Ver más 
+                    </button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

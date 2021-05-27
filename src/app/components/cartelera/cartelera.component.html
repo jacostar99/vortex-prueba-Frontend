@@ -1,0 +1,23 @@
+<h1>En cartelera</h1>
+<hr>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let pelicula of peliculas; let i = index">
+        <div class="card h-100">
+            <img [src]="pelicula.imagen" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"> {{ pelicula.nombre}}</h5>
+                <p class="card-text"> {{pelicula.informacion}}</p>
+                <p class="card-text"> Precio boleta: ${{pelicula.precioTicket}}</p>
+
+
+                <div class="d-grid gap-2">
+                    <a class="btn btn-outline-primary" [routerLink]="['/compra']"> Comprar boletas </a>
+                    <!-- <button class="btn btn-outline-primary">
+                        Ver más 
+                    </button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
